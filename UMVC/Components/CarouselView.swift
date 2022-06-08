@@ -6,7 +6,7 @@ struct CarouselView<Item: Identifiable, ContentView: View>: View {
     var items: [Item]
     var contentView: (Item) -> ContentView
 
-    @Environment(\.focusController) private var focusController
+    @EnvironmentObject private var focusController: ScrollFocusController<String>
     @State private var customPreferenceKey: String = ""
 
     var body: some View {
@@ -18,10 +18,10 @@ struct CarouselView<Item: Identifiable, ContentView: View>: View {
                             .tag(item.id)
                     }
                 }
-                .onReceive(self.focusController.$focusedImage, perform: { image in
-                    if let image = image {
+                .onReceive(self.focusController.publisher, perform: { id in
+                    if let id = id {
                         withAnimation {
-                            reader.scrollTo(image.id)
+                            reader.scrollTo(id)
                         }
                     }
                 })

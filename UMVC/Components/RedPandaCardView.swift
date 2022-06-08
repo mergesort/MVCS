@@ -4,7 +4,7 @@ import SwiftUI
 /// A view that fetches a red panda image from the server and allows a user to favorite the red panda.
 struct RedPandaCardView: View {
 
-    @Environment(\.focusController) private var focusController
+    @EnvironmentObject private var focusController: ScrollFocusController<String>
 
     // An instance of `ImagesController`, which can take in the shared store or another store if we so choose,
     // an important part of our Controllers being decoupled from our Stores.
@@ -30,7 +30,7 @@ struct RedPandaCardView: View {
                     })
                     .onTapGesture(perform: {
                         if self.currentImageIsSaved {
-                            focusController.focusedImage = self.currentImage
+                            focusController.scrollTo(self.currentImage!.id)
                         }
                     })
             } else {
@@ -55,7 +55,7 @@ struct RedPandaCardView: View {
                 Button(action: {
                     Task {
                         if self.currentImageIsSaved {
-                            focusController.focusedImage = self.currentImage
+                            focusController.scrollTo(self.currentImage!.id)
                         } else {
                             try await self.imagesController.saveImage(image: self.currentImage!)
                             try await self.fetchImage()

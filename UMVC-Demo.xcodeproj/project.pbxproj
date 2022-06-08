@@ -19,7 +19,7 @@
 		B746F811284BB8FE007FB106 /* RedPandaCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746F80F284BB8FE007FB106 /* RedPandaCardView.swift */; };
 		B746F812284BB8FE007FB106 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746F810284BB8FE007FB106 /* CarouselView.swift */; };
 		B746F814284D42FC007FB106 /* FavoritesCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746F813284D42FC007FB106 /* FavoritesCarouselView.swift */; };
-		B746F816284D46F8007FB106 /* ScrollViewFocusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746F815284D46F8007FB106 /* ScrollViewFocusController.swift */; };
+		B746F816284D46F8007FB106 /* ScrollFocusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746F815284D46F8007FB106 /* ScrollFocusController.swift */; };
 		B7D0A350283DEF9600FF06D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7D0A34F283DEF9600FF06D3 /* Assets.xcassets */; };
 		B7D0A353283DEF9600FF06D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7D0A352283DEF9600FF06D3 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,7 @@
 		B746F80F284BB8FE007FB106 /* RedPandaCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedPandaCardView.swift; sourceTree = "<group>"; };
 		B746F810284BB8FE007FB106 /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		B746F813284D42FC007FB106 /* FavoritesCarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesCarouselView.swift; sourceTree = "<group>"; };
-		B746F815284D46F8007FB106 /* ScrollViewFocusController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewFocusController.swift; sourceTree = "<group>"; };
+		B746F815284D46F8007FB106 /* ScrollFocusController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollFocusController.swift; sourceTree = "<group>"; };
 		B7D0A348283DEF9400FF06D3 /* UMVC Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UMVC Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D0A34F283DEF9600FF06D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7D0A352283DEF9600FF06D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				B746F7F8284515A2007FB106 /* ImagesController.swift */,
-				B746F815284D46F8007FB106 /* ScrollViewFocusController.swift */,
+				B746F815284D46F8007FB106 /* ScrollFocusController.swift */,
 				B746F7FC2847FCD3007FB106 /* RemoteImage.swift */,
 				B746F800284A770F007FB106 /* RemoteImageView.swift */,
 			);
@@ -222,7 +222,7 @@
 				B746F805284BB8AA007FB106 /* View+Style.swift in Sources */,
 				B746F80C284BB8EA007FB106 /* App.UMVCDemo.swift in Sources */,
 				B746F812284BB8FE007FB106 /* CarouselView.swift in Sources */,
-				B746F816284D46F8007FB106 /* ScrollViewFocusController.swift in Sources */,
+				B746F816284D46F8007FB106 /* ScrollFocusController.swift in Sources */,
 				B746F801284A770F007FB106 /* RemoteImageView.swift in Sources */,
 				B746F7FD2847FCD3007FB106 /* RemoteImage.swift in Sources */,
 				B746F811284BB8FE007FB106 /* RedPandaCardView.swift in Sources */,
