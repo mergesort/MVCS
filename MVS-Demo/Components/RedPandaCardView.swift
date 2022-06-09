@@ -8,7 +8,9 @@ struct RedPandaCardView: View {
 
     // An instance of `ImagesController`, which can take in the shared store or another store if we so choose,
     // an important part of our Controllers being decoupled from our Stores.
+//    @StateObject private var imagesController = ImagesController()
     @StateObject private var imagesController = ImagesController(store: Store.imagesStore)
+
     @State private var currentImage: RemoteImage?
 
     var body: some View {
@@ -17,9 +19,14 @@ struct RedPandaCardView: View {
                 Spacer()
 
                 RemoteImageView(image: currentImage)
+//                    .frame(maxHeight: 300.0)
                     .frame(maxWidth: 300.0)
+//                    .frame(width: 300.0)
                     .frame(height: 300.0)
-                    .centerCroppedCardStyle()
+                //, height: 300.0)
+//                    .clipped()
+//                    .centerCroppedCardStyle()
+                    .aspectRatio(CGFloat(currentImage.height / currentImage.width), contentMode: .fit)
                     .shadow(color: .black, radius: 2.0, x: 1.0, y: 1.0)
                     .overlay(content: {
                         if self.currentImageIsSaved {
@@ -95,7 +102,7 @@ private extension RedPandaCardView {
 
     var currentImageIsSaved: Bool {
         if let image = self.currentImage {
-            return self.imagesController.images.contains(image)
+            return self.imagesController.images.contains(where: { image.id == $0.id })
         } else {
             return false
         }

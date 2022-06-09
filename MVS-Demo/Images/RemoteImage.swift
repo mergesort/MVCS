@@ -3,6 +3,7 @@ import Bodega
 
 /// A type representing the API response of an image from the API we're interacting with.
 struct RemoteImage: Codable, Equatable, Identifiable {
+    let createdAt: Date
     let url: URL
     let width: Float
     let height: Float

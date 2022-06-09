@@ -18,6 +18,9 @@ struct FavoritesCarouselView: View {
     // An instance of `ImagesController`, which can take in the shared store or another store if we so choose,
     // an important part of our Controllers being decoupled from our Stores.
     @StateObject private var imagesController = ImagesController(store: Store.imagesStore)
+//    @StateObject private var imagesController = ImagesController()
+
+
     @State private var animation: Animation? = nil
 
     var body: some View {
@@ -51,7 +54,7 @@ struct FavoritesCarouselView: View {
             } else {
                 HStack {
                     CarouselView(
-                        items: self.imagesController.images.reversed(),
+                        items: self.imagesController.images.sorted(by: { $0.createdAt > $1.createdAt}),
                         contentView: { image in
                             ZStack(alignment: .topTrailing) {
                                 RemoteImageView(image: image)
