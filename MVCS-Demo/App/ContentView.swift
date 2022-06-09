@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @StateObject var carouselFocusController = ScrollFocusController<String>()
+    @StateObject private var carouselFocusController = ScrollFocusController<String>()
 
     var body: some View {
         VStack(spacing: 0.0) {

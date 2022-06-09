@@ -6,10 +6,7 @@ struct RedPandaCardView: View {
 
     @EnvironmentObject private var focusController: ScrollFocusController<String>
 
-    // An instance of `ImagesController`, which can take in the shared store or another store if we so choose,
-    // an important part of our Controllers being decoupled from our Stores.
-//    @StateObject private var imagesController = ImagesController()
-    @StateObject private var imagesController = ImagesController(store: Store.imagesStore)
+    @StateObject private var imagesController = ImagesController()
 
     @State private var currentImage: RemoteImage?
 
@@ -19,15 +16,10 @@ struct RedPandaCardView: View {
                 Spacer()
 
                 RemoteImageView(image: currentImage)
-//                    .frame(maxHeight: 300.0)
                     .frame(maxWidth: 300.0)
-//                    .frame(width: 300.0)
                     .frame(height: 300.0)
-                //, height: 300.0)
-//                    .clipped()
-//                    .centerCroppedCardStyle()
                     .aspectRatio(CGFloat(currentImage.height / currentImage.width), contentMode: .fit)
-                    .shadow(color: .black, radius: 2.0, x: 1.0, y: 1.0)
+                    .primaryBorder()
                     .overlay(content: {
                         if self.currentImageIsSaved {
                             Color.black.opacity(0.5)
@@ -35,6 +27,7 @@ struct RedPandaCardView: View {
                             Color.clear
                         }
                     })
+                    .cornerRadius(8.0)
                     .onTapGesture(perform: {
                         if self.currentImageIsSaved {
                             focusController.scrollTo(self.currentImage!.id)

@@ -12,14 +12,11 @@ import SwiftUI
 //    .onReceive(self.imagesController.$images, perform: {
 //        self.images = $0.filter({ $0.width > 500 && $0.height > 500 })
 //    })
+
 /// A horizontally scrolling carousel that displays the red panda images a user has favorited.
 struct FavoritesCarouselView: View {
 
-    // An instance of `ImagesController`, which can take in the shared store or another store if we so choose,
-    // an important part of our Controllers being decoupled from our Stores.
-    @StateObject private var imagesController = ImagesController(store: Store.imagesStore)
-//    @StateObject private var imagesController = ImagesController()
-
+    @StateObject private var imagesController = ImagesController()
 
     @State private var animation: Animation? = nil
 
@@ -38,6 +35,7 @@ struct FavoritesCarouselView: View {
                     }
                 }, label: {
                     Image(systemName: "xmark.circle.fill")
+                        .opacity(imagesController.images.isEmpty ? 0.0 : 1.0)
                         .font(.title)
                         .foregroundColor(.red)
                 })
@@ -58,10 +56,7 @@ struct FavoritesCarouselView: View {
                         contentView: { image in
                             ZStack(alignment: .topTrailing) {
                                 RemoteImageView(image: image)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 8.0)
-                                            .stroke(Color.palette.primary, lineWidth: 4.0)
-                                    )
+                                    .primaryBorder()
                                     .centerCroppedCardStyle()
 
                                 Button(action: {

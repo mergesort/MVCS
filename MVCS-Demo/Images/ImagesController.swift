@@ -1,23 +1,26 @@
 import Boutique
-import Foundation
 import SwiftUI
 
-// Model View Observable Object
-// MVCS
-// MVS
-// use this in views rather than view models
+// You may prefer to decouple a `Controller` from it's `Store`, and that's very easily doable.
+// Instead of a property in the `Controller` such as `@Stored(in: Store.imagesStore) var images`
+// you would instead create a `Controller` with a custom initializer takes in a `Store` like so.
+//
+// @Stored var images: [RemoteImage]
+//
+// init(store: Store<RemoteImage>) {
+//     self._images = Stored(in: store)
+// }
+//
+// And whenever you instiate a `Controller` you provide it a `Store`.
+// @StateObject private var imagesController = ImagesController(store: Store.imagesStore)
 
 /// A controller that allows you to fetch, save, and delete images from a `Store`.
 final class ImagesController: ObservableObject {
 
-//    @Stored(in: Store.imagesStore) var images
-    @Stored var images: [RemoteImage]
+    /// The `Store` that we'll be using to save images.
+    @Stored(in: Store.imagesStore) var images
 
-    init(store: Store<RemoteImage>) {
-        self._images = Stored(in: store)
-    }
-
-    /// Fetches `RemoteImage` from the API, providing the user with a red panda if the request suceeds.
+    /// Fetches `RemoteImage` from the API, providing the user with a red panda if the request succeeds.
     /// - Returns: The `RemoteImage` requested.
     func fetchImage() async throws -> RemoteImage {
         // Hit the API that provides you a random image's metadata

@@ -26,7 +26,7 @@ extension Color {
 
 }
 
-// I'm too lazy to build a real palette for this project so bear with me.
+// I'm too lazy to build a real palette for this project so with this mediocre code.
 private extension Color {
 
     static func colorValue(_ fromRGBValue: Int) -> Double {
