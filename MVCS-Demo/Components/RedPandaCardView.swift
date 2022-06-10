@@ -10,6 +10,8 @@ struct RedPandaCardView: View {
 
     @State private var currentImage: RemoteImage?
 
+    @State private var requestInFlight = false
+
     var body: some View {
         VStack(spacing: 16.0) {
             if let currentImage = currentImage {
@@ -48,9 +50,10 @@ struct RedPandaCardView: View {
                         .font(.title)
                         .frame(maxWidth: .infinity)
                         .frame(height: 52.0)
-                        .background(Color.palette.primary)
+                        .background(Color.palette.primary.overlay(self.requestInFlight ? Color.black.opacity(0.2) : Color.clear))
                         .foregroundColor(.white)
                 })
+                .disabled(self.requestInFlight)
 
                 Button(action: {
                     Task {
@@ -68,9 +71,15 @@ struct RedPandaCardView: View {
                         .font(.title)
                         .frame(maxWidth: .infinity)
                         .frame(height: 52.0)
-                        .background(self.currentImageIsSaved ? Color.palette.secondary : Color.palette.tertiary)
+                        .background(
+                            // I wouldn't use AnyView in a production app, but too lazy to disambiguate the required types here
+                            self.currentImageIsSaved ?
+                                AnyView(Color.palette.secondary) :
+                                AnyView(Color.palette.tertiary.overlay(self.requestInFlight ? Color.black.opacity(0.2) : Color.clear))
+                        )
                         .foregroundColor(.white)
                 })
+                .disabled(self.requestInFlight)
             }
             .cornerRadius(8.0)
         }
@@ -89,8 +98,16 @@ struct RedPandaCardView: View {
 private extension RedPandaCardView {
 
     func fetchImage() async throws {
+        self.requestInFlight = true
         self.currentImage = nil // Assigning nil shows the progress spinner
-        self.currentImage = try await self.imagesController.fetchImage()
+
+        do {
+            self.currentImage = try await self.imagesController.fetchImage()
+            self.requestInFlight = false
+        } catch {
+            self.requestInFlight = false
+            throw error
+        }
     }
 
     var currentImageIsSaved: Bool {
