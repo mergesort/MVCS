@@ -14,11 +14,11 @@ struct RedPandaCardView: View {
 
     var body: some View {
         VStack(spacing: 16.0) {
-            if let currentImage = currentImage {
-                Spacer()
 
+            Spacer()
+            if let currentImage = currentImage {
                 RemoteImageView(image: currentImage)
-                    .aspectRatio(CGFloat(currentImage.width / currentImage.height), contentMode: .fit)
+                    .aspectRatio(CGFloat(currentImage.height / currentImage.width), contentMode: .fit)
                     .primaryBorder()
                     .overlay(content: {
                         if self.currentImageIsSaved {
@@ -37,6 +37,7 @@ struct RedPandaCardView: View {
                 ProgressView()
                     .frame(width: 300.0, height: 300.0)
             }
+            Spacer()
 
             VStack(spacing: 0.0) {
                 Button(action: {
