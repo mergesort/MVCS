@@ -26,6 +26,7 @@ struct FavoritesCarouselView: View {
                 Text("Favorites")
                     .bold()
                     .font(.largeTitle)
+                    .padding(.top)
 
                 Spacer()
 
@@ -43,6 +44,8 @@ struct FavoritesCarouselView: View {
 
             if self.imagesController.images.isEmpty {
                 VStack {
+                    Spacer()
+
                     Text("Add some red pandas you love and they'll appear here!")
                         .multilineTextAlignment(.center)
                         .font(.title)
