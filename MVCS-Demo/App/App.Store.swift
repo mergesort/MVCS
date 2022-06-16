@@ -10,8 +10,7 @@ extension Store where Object == RemoteImage {
     /// you want cached and accessible throughout the app, you can have that. Or if you want to create many
     /// small or even temp stores, that's perfectly fine too, in fact that makes it great for testing.
     static let imagesStore = Store<RemoteImage>(
-        storagePath: Store.documentsDirectory(appendingPath: "Images"),
-        cacheIdentifier: \.id
+        storagePath: Store.documentsDirectory(appendingPath: "Images")
     )
 
 }
