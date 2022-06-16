@@ -18,9 +18,7 @@ struct RedPandaCardView: View {
                 Spacer()
 
                 RemoteImageView(image: currentImage)
-                    .frame(maxWidth: 300.0)
-                    .frame(height: 300.0)
-                    .aspectRatio(CGFloat(currentImage.height / currentImage.width), contentMode: .fit)
+                    .aspectRatio(CGFloat(currentImage.width / currentImage.height), contentMode: .fit)
                     .primaryBorder()
                     .overlay(content: {
                         if self.currentImageIsSaved {
@@ -99,15 +97,12 @@ private extension RedPandaCardView {
 
     func fetchImage() async throws {
         self.requestInFlight = true
-        self.currentImage = nil // Assigning nil shows the progress spinner
-
-        do {
-            self.currentImage = try await self.imagesController.fetchImage()
+        defer {
             self.requestInFlight = false
-        } catch {
-            self.requestInFlight = false
-            throw error
         }
+
+        self.currentImage = nil // Assigning nil shows the progress spinner
+        self.currentImage = try await self.imagesController.fetchImage()
     }
 
     var currentImageIsSaved: Bool {
