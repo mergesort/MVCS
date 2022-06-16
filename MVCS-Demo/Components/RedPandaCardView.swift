@@ -41,7 +41,7 @@ struct RedPandaCardView: View {
             VStack(spacing: 0.0) {
                 Button(action: {
                     Task {
-                        try await self.fetchImage()
+                        try await self.setCurrentImage()
                     }
                 }, label: {
                     Label("Fetch", systemImage: "arrow.clockwise.circle")
@@ -59,7 +59,7 @@ struct RedPandaCardView: View {
                             focusController.scrollTo(self.currentImage!.id)
                         } else {
                             try await self.imagesController.saveImage(image: self.currentImage!)
-                            try await self.fetchImage()
+                            try await self.setCurrentImage()
                         }
                     }
                 }, label: {
@@ -84,7 +84,7 @@ struct RedPandaCardView: View {
         .padding(.vertical, 16.0)
         .task({
             do {
-                try await self.fetchImage()
+                try await self.setCurrentImage()
             } catch {
                 print("Error fetching image", error)
             }
@@ -95,7 +95,7 @@ struct RedPandaCardView: View {
 
 private extension RedPandaCardView {
 
-    func fetchImage() async throws {
+    func setCurrentImage() async throws {
         self.requestInFlight = true
         defer {
             self.requestInFlight = false
