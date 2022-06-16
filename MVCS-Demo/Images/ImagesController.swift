@@ -14,7 +14,7 @@ import SwiftUI
 // And whenever you instiate a `Controller` you provide it a `Store`.
 // @StateObject private var imagesController = ImagesController(store: Store.imagesStore)
 
-/// A controller that allows you to fetch, save, and delete images from a `Store`.
+/// A controller that allows you to fetch images remotely, and save or delete them from a `Store`.
 final class ImagesController: ObservableObject {
 
     /// The `Store` that we'll be using to save images.
@@ -73,8 +73,8 @@ private extension ImagesController {
 
     /// A type representing the API response providing image metadata from the API we're interacting with.
     struct RemoteImageResponse: Codable {
-        let height: Float
         let width: Float
+        let height: Float
         let key: String
         let url: URL
     }
