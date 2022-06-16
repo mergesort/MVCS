@@ -18,7 +18,7 @@ import SwiftUI
 final class ImagesController: ObservableObject {
 
     /// The `Store` that we'll be using to save images.
-    @Stored(in: Store.imagesStore) var images
+    @Stored(in: .imagesStore) var images
 
     /// Fetches `RemoteImage` from the API, providing the user with a red panda if the request succeeds.
     /// - Returns: The `RemoteImage` requested.
