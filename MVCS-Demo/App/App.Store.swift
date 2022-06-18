@@ -1,7 +1,7 @@
 import Boutique
 import Foundation
 
-extension Store where Object == RemoteImage {
+extension Store where Item == RemoteImage {
 
     /// The app's default images store`.
     ///
