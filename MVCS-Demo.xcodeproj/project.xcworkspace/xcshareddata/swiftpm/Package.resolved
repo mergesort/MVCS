@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mergesort/Bodega",
       "state" : {
-        "revision" : "6cd07e1fc462741bb250d0491941eb51740df862",
-        "version" : "0.10.0"
+        "revision" : "2edf435448cda4e18a4850be7a9d03c0c79f5763",
+        "version" : "1.0.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mergesort/boutique",
       "state" : {
-        "branch" : "main",
-        "revision" : "b2fde734b45afd3a78ecbfb79d17eb0214b7861b"
+        "revision" : "5f41343a5bba755fdc5532369494cb9c8c5ac010",
+        "version" : "1.0.0"
       }
     }
   ],
