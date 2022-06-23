@@ -11,7 +11,7 @@ import SwiftUI
 //     self._images = Stored(in: store)
 // }
 //
-// And whenever you instiate a `Controller` you provide it a `Store`.
+// And whenever you instantiate a `Controller` you provide it a `Store`.
 // @StateObject private var imagesController = ImagesController(store: Store.imagesStore)
 
 /// A controller that allows you to fetch images remotely, and save or delete them from a `Store`.
