@@ -20,6 +20,9 @@ The best way to explain Model View Controller Store is to show you what it is. T
   Plus don't you want to look at some cute red pandas?
 </h3>
 
-
-
 https://user-images.githubusercontent.com/716513/174133310-239d7da7-8a0d-48e6-a909-c9a121078f74.mov
+
+> **Note**
+> While this demo app stores images in Boutique, storing images or other binary data in Boutique is not recommended. The reason for this is that storing images in Boutique can balloon up your app's memory, so the same way you wouldn't put images into a database you should avoid storing images in Boutique.
+> 
+>  This was something I only considered after releasing Boutique, and this demo project is still great for demonstrating what Boutique can do, but if you're storing images wouldn't scale to storing the thousands of objects Boutique can handle otherwise. I'm working on an example wtihout images to make sure it's clearer to not use Boutique as an image cache, but I ask folks be patient as I've been overwhelmed with tons of [really positive] feedback. With that said, [Bodega](https://github.com/mergesort/Bodega) is a great way to store binary data to disk, and I would highly recommend it for downloading and storing images.
