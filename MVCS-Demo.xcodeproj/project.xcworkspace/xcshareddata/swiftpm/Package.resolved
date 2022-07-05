@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mergesort/Bodega",
       "state" : {
-        "revision" : "2edf435448cda4e18a4850be7a9d03c0c79f5763",
-        "version" : "1.0.0"
+        "revision" : "29966bf638714c1fbe0c734e259b3d5dfda58d6b",
+        "version" : "1.0.1"
       }
     },
     {
@@ -14,8 +14,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mergesort/boutique",
       "state" : {
-        "revision" : "5f41343a5bba755fdc5532369494cb9c8c5ac010",
-        "version" : "1.0.0"
+        "revision" : "bb6fa56ab625ba9dd1e5162cfdb31b8791f5b1fe",
+        "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "swift-collections",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-collections",
+      "state" : {
+        "revision" : "48254824bb4248676bf7ce56014ff57b142b77eb",
+        "version" : "1.0.2"
       }
     }
   ],
